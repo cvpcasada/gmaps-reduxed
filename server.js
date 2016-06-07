@@ -6,8 +6,6 @@ const config = process.env.NODE_ENV !== 'production' ? require('./webpack.config
 const app = express();
 const compiler = webpack(config);
 
-if (process.env.NODE_ENV === 'dev') {
-
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath,
@@ -16,13 +14,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-}
-
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port);
-
 console.log(`Listening at http://localhost:${port}`);
