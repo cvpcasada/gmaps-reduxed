@@ -23,10 +23,6 @@ app.get('*', function(req, res) {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, 'localhost', function (err, result) {
-  if (err) {
-    console.log(err);
-  }
+app.listen(port);
 
-  console.log(`Listening at http://localhost:${port}`);
-});
+console.log(`Listening at http://localhost:${port}`);
