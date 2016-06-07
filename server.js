@@ -6,7 +6,7 @@ const config = process.env.NODE_ENV !== 'production' ? require('./webpack.config
 const app = express();
 const compiler = webpack(config);
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'dev') {
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
