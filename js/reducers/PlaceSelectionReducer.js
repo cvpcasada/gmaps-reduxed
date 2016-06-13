@@ -31,6 +31,7 @@ export default (state = defaultState, action) => {
 
     case ActionTypes.REQUEST_SUGGESTED_PLACES:
           return {...state, isFetching: true};
+    
     case ActionTypes.RECEIVE_SUGGESTED_PLACES: {
       return {...state, isFetching: false, suggestedPlaces: action.places};
     }

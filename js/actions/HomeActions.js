@@ -38,9 +38,6 @@ export function requestSuggestedPlaces(suggest) {
 }
 
 export function receiveSuggestedPlaces(suggest,places =[]) {
-  console.log('dispatching receiveSuggestedPlaces');
-  console.log({places});
-
   return {
     type: RECEIVE_SUGGESTED_PLACES,
     suggest,
@@ -53,6 +50,7 @@ export function fetchSuggestedPlace(suggest) {
     dispatch(requestSuggestedPlaces(suggest));
     const {lat, lng} = suggest.location;
 
+          
     return new Promise((resolve,reject) => {
 
       const request = {
@@ -65,7 +63,6 @@ export function fetchSuggestedPlace(suggest) {
         if (results && status === google.maps.places.PlacesServiceStatus.OK) {
           resolve(results);
         } else {
-          resolve([]);
         }
       });
 
